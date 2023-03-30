@@ -14,7 +14,7 @@
 # print()
 #
 # print_resume(resume)
-
+#commit SEKA
 # #2:
 # def get_data():
 #     my_list = [1, 2, 3]
