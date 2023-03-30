@@ -1,78 +1,76 @@
-#1:
-# def get_skills(resume):
-#     return resume.get('skills')
-# def print_resume(resume):
-#     print("Name: " + resume.get('name'))
-#     print("Age: " + resume.get('age'))
-#     print("Education: " + resume.get('education'))
-#     print("Skills: " + "".join(resume.get('skills')))
-#
-#
-# resume = {'name':'Nurbol','age': '19','education':'Satbayev university', 'skills':'programming smart strong'}
-#
-# print(get_skills(resume))
-# print()
-#
-# print_resume(resume)
-#commit SEKA
-# #2:
-# def get_data():
-#     my_list = [1, 2, 3]
-#     my_tuple = (4, 5, 6)
-#     my_dict = {"name": "John", "age": 25}
-#     return my_list, my_tuple, my_dict
-#
-# result_list, result_tuple, result_dict = get_data()
-#
-# print(result_list)
-# print(result_tuple)
-# print(result_dict)
+# # 1 esep
 
-# #3:
-# from functools import reduce
-#
-# my_list = [1, 2, 3, 4, 5]
-#
-# # пример использования функции map
-# squared_list = list(map(lambda x: x ** 2, my_list))
-# print(squared_list)
-#
-# # пример использования функции filter
-# even_list = list(filter(lambda x: x % 2 == 0, my_list))
-# print(even_list)
-#
-# # пример использования функции reduce
-# product = reduce(lambda x, y: x * y, my_list)
-# print(product)
+# countries = {'Казахстан': ['Иртыш', 'Есиль', 'Тобол'],
+#              'Россия': ['Иртыш', 'Лена'],
+#              'Украина': ['Днепр', 'Днестр', 'Дунай'],
+#              'Великобритания': ['Северн', 'Темза', 'Трент'],
+#              'Франция': ['Луара', 'Сена', 'Рона']}
 
-# #4:
-# def delivery_cost(street, price):
-#     if "Аль-Фараби" in street or "Саина" in street or "Ташенова" in street or "Достык" in street:
-#         if price < 10000:
-#             return 500
-#         else:
-#             return 0
-#     else:
-#         if price < 10000:
-#             return 1000
-#         else:
-#             return 1000
+# for country, rivers in countries.items():
+#     for river in rivers:
+#         print(f'{river} протекает в стране {country}')
+
+# river_name = input('Введите название реки: ')
+# for rivers in countries.values():
+#     if river_name in rivers:
+#         print('Река есть в словаре')
+#         break
+# else:
+#     print('Реки нет в словаре')
+
+
+# #2esep
+
+# commentators = {}
+# while True:
+#     input_string = input()
+#     if not input_string: # если введена пустая строка, выходим из цикла
+#         break
+#     name, comment = input_string.split(': ') # разбиваем входную строку на имя и комментарий
+#     if name not in commentators: # если имя комментатора не встречалось ранее, добавляем его в словарь
+#         commentators[name] = 1
+#     else: # если имя комментатора уже встречалось ранее, увеличиваем количество его комментариев на 1
+#         commentators[name] += 1
+# print("Кол-во уникальных коментов: ")
+# print(len(commentators)) # выводим количество уникальных комментаторов
+
+#3esep
+
+
+n = int(input()) # количество номеров телефонов
+phonebook = {} # словарь для хранения номеров телефонов
+for i in range(n):
+    phone, name = input().split()
+    phonebook[name] = phone
+
+query = input() # запрос имени для поиска номера телефона
+if query in phonebook:
+    print(phonebook[query])
+else:
+    print("Нет в телефонной книге")
+
+
+# #4esep
 #
-# print(delivery_cost('Достык 36', 100000))
+# # ввод числа сотрудников
+# print("График отпусков сотрудников: ")
+# n = int(input())
 #
-# #5:
-# def compose(f, g):
-#     def h(x):
-#         return f(g(x))
-#     return h
+# # создание пустого словаря для отпусков
+# vacation_dict = {}
 #
-# def f(x):
-#     return x * 2
+# # заполнение словаря данными об отпусках
+# for i in range(n):
+#     name, day, month = input().split()
+#     if month not in vacation_dict:
+#         vacation_dict[month] = []
+#     vacation_dict[month].append(name) #(+1 элемент)
 #
-# def g(x):
-#     return x + 1
+# # ввод месяца запроса
+# requested_month = input()
 #
-# h = compose(f, g)
-#
-# result = h(3)
-# print(result) #result:8
+# # вывод фамилий сотрудников, у которых отпуск в заданном месяце
+# if requested_month in vacation_dict:
+#     print(" ".join(vacation_dict[requested_month]))
+# else:
+#     print("Никто не идет в отпуск в указанный месяц.")
